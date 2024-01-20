@@ -7,147 +7,268 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="417dp"
-        android:layout_height="351dp"
-        android:background="#808080"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <Button
-            android:id="@+id/cButton"
-            android:layout_width="91dp"
-            android:layout_height="80dp"
-            android:backgroundTint="#808080"
-            android:text="C"
-            android:textColor="#00FFFF"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/percentButton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/percentButton"
-            android:layout_width="91dp"
-            android:layout_height="80dp"
-            android:backgroundTint="#808080"
-            android:text="%"
-            android:textColor="#00FFFF"
-            android:textSize="28sp"
-            app:layout_constraintEnd_toStartOf="@+id/crossButton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cButton"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/crossButton"
-            android:layout_width="91dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="4dp"
-            android:backgroundTint="#808080"
-            android:text="X"
-            android:textColor="#00FFFF"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/divideButton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/percentButton"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/divideButton"
-            android:layout_width="91dp"
-            android:layout_height="80dp"
-            android:backgroundTint="#808080"
-            android:text="/"
-            android:textColor="#00FFFF"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/crossButton"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/num7"
-            android:layout_width="91dp"
-            android:layout_height="83dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#808080"
-            android:text="7"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/num8"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cButton" />
-
-        <Button
-            android:id="@+id/num8"
-            android:layout_width="91dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#808080"
-            android:text="8"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/num7"
-            app:layout_constraintTop_toBottomOf="@+id/percentButton" />
-
-        <Button
-            android:id="@+id/num9"
-            android:layout_width="91dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#808080"
-            android:text="9"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/multiply"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/num8"
-            app:layout_constraintTop_toBottomOf="@+id/crossButton" />
-
-        <Button
-            android:id="@+id/multiply"
-            android:layout_width="91dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#808080"
-            android:text="*"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/num9"
-            app:layout_constraintTop_toBottomOf="@+id/divideButton" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <TextView
         android:id="@+id/ansBox"
         android:layout_width="335dp"
         android:layout_height="87dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
         android:gravity="center|right"
         android:inputType="none"
         android:textColor="@color/white"
         android:textSize="42sp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="412dp"
+        android:layout_height="406dp"
+        android:background="#808080"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TableRow android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/cButton"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="C"
+                android:textColor="#00FFFF"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/percentButton"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="%"
+                android:textColor="#00FFFF"
+                android:textSize="28sp" />
+
+
+            <Button
+                android:id="@+id/crossButton"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="xx"
+                android:textColor="#00FFFF"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/divideButton"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="/"
+                android:textColor="#00FFFF"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num7"
+                android:layout_width="91dp"
+                android:layout_height="83dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="7"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/num8"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="8"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/num9"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="9"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/multiply"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="X"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num4"
+                android:layout_width="91dp"
+                android:layout_height="83dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="4"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/num5"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="5"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/num6"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="6"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/minus"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="42sp" />
+
+        </TableRow>
+
+        <TableRow android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num1"
+                android:layout_width="91dp"
+                android:layout_height="83dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/num2"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="2"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/num3"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/plus"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="28sp" />
+
+        </TableRow>
+
+        <TableRow android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/twoZero"
+                android:layout_width="91dp"
+                android:layout_height="83dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="00"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/zero"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/point"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="."
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/ans"
+                android:layout_width="91dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#808080"
+                android:text="="
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
