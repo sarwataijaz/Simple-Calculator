@@ -1,13 +1,17 @@
 package com.example.calculator
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
     val input = StringBuilder()
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -98,6 +102,10 @@ class MainActivity : AppCompatActivity() {
             input.append("%")
         }
         crossButton.setOnClickListener {
+            val animation: Animation = AnimationUtils.loadAnimation(this, R.anim.rotate)
+            animation.repeatCount = 1
+            crossButton.startAnimation(animation)
+
             val currentText = ansBox.text.toString()
 
 // Check if the text is not empty before removing the last character
@@ -111,34 +119,55 @@ class MainActivity : AppCompatActivity() {
         }
 
         ans.setOnClickListener {
-            val result: Double? = calculateResult(ansBox)
+            val result = calculateResult(ansBox)
                 if(result!=null) {
                     ansBox.text = result.toString()
+                } else {
+                    ansBox.text = "Exception Error"
                 }
         }
     }
 
-    private fun calculateResult(ansBox: TextView): Double? {
+    private fun calculateResult(ansBox: TextView): Any? {
         val text = ansBox.text.toString()
-        var operator: Char
-        var num1: Double = 0.0
-        var num2: Double = 0.0
-        for(i in text.indices) {
-            if(text[i] == '+' || text[i] == '-' || text[i] == 'x' || text[i] == '/') {
-                if(num1!=null) {
-                    operator = when(text[i]){
-                        '+' ->  '+'
-                        '-' -> '-'
-                        'x' -> 'x'
-                        '/' -> '/'
-                        else -> '0'
-                    }
-                }
-                else {
+        val numbers = mutableListOf<Double>()
+        val operators = mutableListOf<Char>()
+        var currentNumber = StringBuilder()
+
+        for (char in text) {
+            if (char.isDigit() || char == '.') {
+                currentNumber.append(char)
+            } else if (char in setOf<Char>('+', '-', 'x', '/')) {
+                if (currentNumber.isNotEmpty()) {
+                    numbers.add(currentNumber.toString().toDouble())
+                    currentNumber.clear()
+                } else {
                     return null
                 }
+                operators.add(char)
             }
         }
-        return null
+
+        if (currentNumber.isNotEmpty()) {
+            numbers.add(currentNumber.toString().toDouble())
+        } else {
+            return null
+        }
+
+        var result = numbers[0]
+        for (i in 1 until numbers.size) {
+            when (operators[i - 1]) {
+                '+' -> result += numbers[i]
+                '-' -> result -= numbers[i]
+                'x' -> result *= numbers[i]
+                '/' -> result /= numbers[i]
+            }
+        }
+
+        if(result % 1.0 == 0.0) {
+            return result.toInt()
+        } else {
+            return result
+        }
     }
 }
