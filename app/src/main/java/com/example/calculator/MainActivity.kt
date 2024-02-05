@@ -289,7 +289,7 @@ class MainActivity : AppCompatActivity() {
                 '-' -> result -= numbers[i]
                 'x' -> result *= numbers[i]
                 '/' -> result /= numbers[i]
-                '%' -> result * 100 / numbers[i]
+                '%' -> result /= 100
             }
         }
 
